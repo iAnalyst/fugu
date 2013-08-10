@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>fugu</title>
+</head>
+<body>
+	
+	<h2>Photos</h2>
+
+		<% @tag.each do |data| %>
+	
+			<% if data['type'] == 'image' %>
+
+				<img src="<%= data['images']['thumbnail']['url'] %>">
+
+			<% end %>
+
+		<% end %>
+
+
+	<h2>Videos</h2>
+
+		<% @tag.each do |data| %>
+
+			<% if data['type'] == 'video' %>
+
+				<video width="480" height="480" controls>
+  					<source src="<%= data['videos']['standard_resolution']['url'] %>" type="video/mp4">
+					Your browser does not support the video tag. Upgrade to Google Chrome.
+				</video>
+
+			<% end %>
+
+		<% end %>
+
+	<br>
+	<br>
+	<br>
+
+</body>
+</html>
+
+

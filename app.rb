@@ -8,10 +8,11 @@ end
 
 get '/' do
 
+	erb :'index.html'
 end
 
-get '/user/:username' do
-	"Hello #{params[:username]}!"
+get '/tag/:tag' do
+	@tag = Instagram.tag_recent_media(params['tag'])
 
-	erb :'user.html'
+	erb :'tag.html'
 end
